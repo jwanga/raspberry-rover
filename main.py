@@ -33,7 +33,7 @@ while not wm:
   try: 
     wm=cwiid.Wiimote() 
   except RuntimeError: 
-    if (i>10): 
+    if (i>1000): 
       quit() 
       break 
     print("Error opening wiimote connection") 
@@ -54,19 +54,19 @@ while True:
   if buttons & cwiid.BTN_UP:
     right = -1
     left = -1
-    print(u'\u21E7')	
+    #print(u'\u21E7')	
   elif buttons & cwiid.BTN_RIGHT:
     right = -1
     left = 1
-    print(u'\u21E8')
+    #print(u'\u21E8')
   elif buttons & cwiid.BTN_DOWN:
     right = 1
     left = 1
-    print(u'\u21E9')
+    #print(u'\u21E9')
   elif buttons & cwiid.BTN_LEFT:
     right = 1
     left = -1
-    print(u'\u21E6')
+    #print(u'\u21E6')
   else:
     right = 0
     left = 0   
@@ -81,7 +81,7 @@ while True:
   rightServo.ChangeDutyCycle(duty + (right * speed))
   leftServo.ChangeDutyCycle(duty + (left * -1 * speed))
   
-  if buttons:
-    print("frequency:" + str(frequency) + " duty:" + str(duty) + " right:" + str(duty + (right * speed)) + " left:" + str(duty + (left * -1 * speed))) 
+  #if buttons:
+    #print("frequency:" + str(frequency) + " duty:" + str(duty) + " right:" + str(duty + (right * speed)) + " left:" + str(duty + (left * -1 * speed))) 
 
   time.sleep(0.1)
