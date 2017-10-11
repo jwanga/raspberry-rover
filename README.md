@@ -6,9 +6,9 @@ A Raspberry Pi powered, Wiimote controlled rover.
 - 
 
 ##Instalation
-clone this repository into the /home directory of your raspberry pi.
+clone this repository into the /home/pi directory of your raspberry pi.
 ```sh
-cd /home
+cd /home/pi
 git clone https://github.com/jwanga/raspberry-rover.git
 ```
 
@@ -27,7 +27,7 @@ After=multi-user.target
  
 [Service]
 Type=simple
-ExecStart=/usr/bin/python /home/raspberry-rover/main.py
+ExecStart=/usr/bin/python /home/pi/raspberry-rover/main.py
 Restart=on-abort
  
 [Install]
@@ -37,7 +37,7 @@ WantedBy=multi-user.target
 After the service is created, we activate it with the following:
 ```sh
 sudo chmod 644 /lib/systemd/system/raspberry-rover.service
-chmod +x /home/raspberry-rover/main.py
+chmod +x /home/pi/raspberry-rover/main.py
 sudo systemctl daemon-reload
 sudo systemctl enable raspberry-rover.service
 sudo systemctl start raspberry-rover.service
