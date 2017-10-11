@@ -33,9 +33,6 @@ while not wm:
   try: 
     wm=cwiid.Wiimote() 
   except RuntimeError: 
-    if (i>1000): 
-      quit() 
-      break 
     print("Error opening wiimote connection") 
     print("attempt " + str(i)) 
     i += 1 
